@@ -1,0 +1,67 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+build/
+dist/
+pip-wheel-metadata/
+*.egg-info/
+*.egg
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+
+# Editor directories and files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Python caches and caches from tools
+.mypy_cache/
+.pytest_cache/
+.cache/
+
+# Django
+# SQLite DB (local development)
+db.sqlite3
+
+# Media and static files (collected/uploaded files)
+/media/
+/staticfiles/
+staticfiles/
+
+# Local settings and secrets
+local_settings.py
+.env
+.env.*
+secrets.json
+
+# Logs and runtime files
+*.log
+logs/
+*.pid
+*.sock
+
+# Test/coverage
+.coverage
+coverage.xml
+htmlcov/
+
+# Tooling
+.tox/
+celerybeat-schedule
+celerybeat.pid
+
