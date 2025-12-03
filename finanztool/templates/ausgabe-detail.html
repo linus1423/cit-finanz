@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <title>Ausgabe: {{ ausgabe.name }}</title>
+  </head>
+  <body>
+    <h1>Ausgabe: {{ ausgabe.name }}</h1>
+    <p>Betrag: {{ ausgabe.betrag }}</p>
+    <p>Beschluss: {{ ausgabe.beschluss }}</p>
+    <p>Datum: {{ ausgabe.datum }}</p>
+    {% if ausgabe.beleg %}
+      <p>Beleg: <a href="{{ ausgabe.beleg.url }}">Herunterladen</a></p>
+    {% endif %}
+    <p><a href="{% url 'finanztool:ausgabe_list' %}">Zurück zur Liste</a> | <a href="{% url 'finanztool:home' %}">Startseite</a></p>
+  </body>
+</html>

@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <title>Ausgaben — Liste</title>
+  </head>
+  <body>
+    <h1>Ausgaben</h1>
+    <p><a href="{% url 'finanztool:ausgabe_create' %}">Neue Ausgabe anlegen</a> | <a href="{% url 'finanztool:home' %}">Startseite</a></p>
+    <ul>
+      {% for obj in object_list %}
+        <li>{{ obj.datum }} — {{ obj.name }}: {{ obj.betrag }} (Beschluss: {{ obj.beschluss }})</li>
+      {% empty %}
+        <li>Keine Ausgaben vorhanden.</li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>

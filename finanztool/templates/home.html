@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>CIT Finanz — Startseite</title>
+    <style>
+      body{font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;margin:0;padding:0;background:#f7f7f9;color:#222}
+      .container{max-width:900px;margin:48px auto;padding:24px;background:#fff;border-radius:8px;box-shadow:0 6px 18px rgba(0,0,0,.06)}
+      header h1{margin:0 0 8px;font-size:1.6rem}
+      nav a{display:inline-block;margin-right:12px;color:#0366d6;text-decoration:none}
+      nav a:hover{text-decoration:underline}
+      .cards{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
+      .card{flex:1 1 200px;padding:12px;border:1px solid #e6e6e9;border-radius:6px;background:#fff}
+      footer{margin-top:20px;font-size:.9rem;color:#666}
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>CIT Finanz</h1>
+        <p>Willkommen — verwalte Töpfe, Kostenstellen, Beschlüsse und Ausgaben.</p>
+      </header>
+
+      <nav>
+        <a href="/admin/">Admin</a>
+        <a href="/beschlusse/">Beschlüsse</a>
+        <a href="/ausgaben/">Ausgaben</a>
+        <a href="/topfe/">Töpfe</a>
+        <a href="/kostenstellen/">Kostenstellen</a>
+      </nav>
+
+      <section class="cards">
+        <div class="card">
+          <h3>Beschlüsse</h3>
+          <p>Liste und Erstellen von Beschlüssen.</p>
+        </div>
+        <div class="card">
+          <h3>Ausgaben</h3>
+          <p>Übersicht über Ausgaben und Belege.</p>
+        </div>
+        <div class="card">
+          <h3>Töpfe</h3>
+          <p>Kontostände und Zuweisungen verwalten.</p>
+        </div>
+        <div class="card">
+          <h3>Kostenstellen</h3>
+          <p>Budgetverantwortliche und Zuordnungen.</p>
+        </div>
+      </section>
+
+      <footer>
+        <p>Angemeldet als: {% if request.user.is_authenticated %}{{ request.user.username }}{% else %}Gast{% endif %}</p>
+      </footer>
+    </div>
+  </body>
+</html>

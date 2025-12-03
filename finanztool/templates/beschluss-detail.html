@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <title>Beschluss: {{ beschluss.name }}</title>
+  </head>
+  <body>
+    <h1>Beschluss: {{ beschluss.name }}</h1>
+    <p>Nummer: {{ beschluss.nummer }}</p>
+    <p>Betrag: {{ beschluss.betrag }}</p>
+    <p>Kostenstelle: {{ beschluss.kostenstelle }}</p>
+    <p>Beschlussdatum: {{ beschluss.beschluss_datum }}</p>
+    <p>Ablaufdatum: {{ beschluss.ablauf_datum }}</p>
+    <p>Status: {% if beschluss.abgeschlossen %}Abgeschlossen{% elif beschluss.ablauf_datum < today %}Abgelaufen{% else %}Aktiv{% endif %}</p>
+    <p>Frei: {{ beschluss.get_frei }}</p>
+    <p>Gebunden: {{ beschluss.get_gebunden }}</p>
+    <p>Ausgegeben: {{ beschluss.get_ausgegeben }}</p>
+    <ul>
+        {% for ausgabe in beschluss.ausgabe_set.all %}
+            <li><a href="{{ ausgabe.get_absolute_url }}">{{ ausgabe.datum }} — {{ ausgabe.name }}: {{ ausgabe.betrag }}</a></li>
+        {% empty %}
+            <li>Keine Ausgaben vorhanden.</li>
+        {% endfor %}
+    </ul>
+    <p><a href="{% url 'finanztool:beschluss_list' %}">Zurück zur Liste</a> | <a href="{% url 'finanztool:home' %}">Startseite</a></p>
+  </body>
+</html>

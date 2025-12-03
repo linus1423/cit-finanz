@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <title>Ausgabe anlegen</title>
+  </head>
+  <body>
+    <h1>Ausgabe anlegen</h1>
+    <p><a href="{% url 'finanztool:ausgabe_list' %}">Zurück zur Liste</a> | <a href="{% url 'finanztool:home' %}">Startseite</a></p>
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Speichern</button>
+    </form>
+  </body>
+</html>

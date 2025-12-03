@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <title>Kostenstelle: {{ kostenstelle.name }}</title>
+  </head>
+  <body>
+    <h1>Kostenstelle: {{ kostenstelle.name }}</h1>
+    <p>Betrag: {{ kostenstelle.betrag }}</p>
+    <p>Topf: {{ kostenstelle.topf }}</p>
+    <p>Gruppe: {{ kostenstelle.groupe }}</p>
+    <p><a href="{% url 'finanztool:kostenstelle_list' %}">Zurück zur Liste</a> | <a href="{% url 'finanztool:home' %}">Startseite</a></p>
+  </body>
+</html>

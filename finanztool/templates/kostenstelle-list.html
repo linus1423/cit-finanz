@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <title>Kostenstellen — Liste</title>
+  </head>
+  <body>
+    <h1>Kostenstellen</h1>
+    <p><a href="{% url 'finanztool:home' %}">Startseite</a></p>
+    <ul>
+      {% for obj in object_list %}
+        <li>{{ obj.name }} — {{ obj.betrag }} (Topf: {{ obj.topf }}, Gruppe: {{ obj.groupe }})</li>
+      {% empty %}
+        <li>Keine Kostenstellen vorhanden.</li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>

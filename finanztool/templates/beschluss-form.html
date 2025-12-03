@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <title>Beschluss anlegen</title>
+  </head>
+  <body>
+    <h1>Beschluss anlegen</h1>
+    <p><a href="{% url 'finanztool:beschluss_list' %}">Zurück zur Liste</a> | <a href="{% url 'finanztool:home' %}">Startseite</a></p>
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+
+      {% if form.non_field_errors %}
+        <div class="errors">
+          {% for err in form.non_field_errors %}
+            <p style="color:#c00">{{ err }}</p>
+          {% endfor %}
+        </div>
+      {% endif %}
+
+      {{ form.as_p }}
+      <button type="submit">Speichern</button>
+    </form>
+  </body>
+</html>

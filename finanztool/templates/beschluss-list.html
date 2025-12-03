@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <title>Beschlüsse — Liste</title>
+    <style>table{border-collapse:collapse;width:100%}th,td{border:1px solid #ddd;padding:8px;text-align:left}th{background:#f4f4f4}</style>
+  </head>
+  <body>
+    <h1>Beschlüsse</h1>
+    <p><a href="{% url 'finanztool:beschluss_create' %}">Neuen Beschluss anlegen</a> | <a href="{% url 'finanztool:home' %}">Startseite</a></p>
+
+    {% if object_list %}
+      <table>
+        <thead>
+          <tr>
+            <th>Nummer</th>
+            <th>Name</th>
+            <th>Betrag</th>
+            <th>Beschlussdatum</th>
+            <th>Ablaufdatum</th>
+            <th>Status</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for obj in object_list %}
+            <tr>
+              <td>{{ obj.nummer }}</td>
+              <td>{{ obj.name }}</td>
+              <td>{{ obj.betrag }}</td>
+              <td>{{ obj.beschluss_datum }}</td>
+              <td>{{ obj.ablauf_datum }}</td>
+              <td>
+                {% if obj.abgeschlossen %}
+                  Abgeschlossen
+                {% elif obj.ablauf_datum < today %}
+                  Abgelaufen
+                {% else %}
+                  Aktiv
+                {% endif %}
+              </td>
+              <td><a href="{{ obj.get_absolute_url }}">Details</a></td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <p>Keine Beschlüsse vorhanden.</p>
+    {% endif %}
+  </body>
+</html>

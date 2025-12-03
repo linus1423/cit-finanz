@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <title>Topf: {{ topf.name }}</title>
+  </head>
+  <body>
+    <h1>Topf: {{ topf.name }}</h1>
+    <p>Betrag: {{ topf.betrag }}</p>
+    <p><a href="{% url 'finanztool:topf_list' %}">Zurück zur Liste</a> | <a href="{% url 'finanztool:home' %}">Startseite</a></p>
+  </body>
+</html>

@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <title>Töpfe — Liste</title>
+  </head>
+  <body>
+    <h1>Töpfe</h1>
+    <p><a href="{% url 'finanztool:home' %}">Startseite</a></p>
+    <ul>
+      {% for obj in object_list %}
+        <li>{{ obj.name }} — {{ obj.betrag }}</li>
+      {% empty %}
+        <li>Keine Töpfe vorhanden.</li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>
